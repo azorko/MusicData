@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  
+  <header>
+	  <% if logged_in? %>
+	    <%= button_to "Log out",
+		session_url(current_user),
+		method: :delete%>
+	  <%else%>
+	    <%= button_to "Sign up for service",
+		new_user_url,
+		method: :get%>
+	  <%end%>
+  </header>
+  <link rel='stylesheet' href=''>
+  <%= flash[:errors] %>
+
+  <%= yield %>
+</body>
+</html>

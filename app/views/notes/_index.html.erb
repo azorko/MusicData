@@ -1,0 +1,10 @@
+<strong> Notes </strong>
+<br>
+<br>
+  <% notes.each do |note| %>
+     <label> <%= note.user.email %> writes: </label>
+     <p> <%= note.description %> </p>
+	 <% if current_user.id == note.user_id %>
+	   <%= button_to "Delete note", note_url(note), method: :delete %>
+	 <%end%>
+  <%end%>
